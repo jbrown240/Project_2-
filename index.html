@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Squad</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 2rem;
+    }
+
+    /* Grid layout for the 6 boxes */
+    .squad-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    /* Styled box borders */
+    .squad-box {
+      border: 2px solid #4a90e2;
+      border-radius: 8px;
+      padding: 1.5rem;
+      background-color: white;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #444;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .squad-box:hover {
+      transform: translateY(-4px);
+      border-color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>The Squad</h1>
+
+  <div class="squad-container" id="squad-container"></div>
+
+  <script>
+    // Array containing squad data (6 members)
+    const squad = [
+      { name: "Alex", age: 22 },
+      { name: "Jordan", age: 24 },
+      { name: "Taylor", age: 21 },
+      { name: "Morgan", age: 23 },
+      { name: "Casey", age: 25 },
+      { name: "Riley", age: 20 }
+    ];
+
+    const container = document.getElementById("squad-container");
+
+    // Loop through array and generate 6 bordered boxes
+    squad.forEach((person) => {
+      const box = document.createElement("div");
+      box.className = "squad-box";
+      box.textContent = `${person.name} is ${person.age} years old.`;
+      container.appendChild(box);
+    });
+  </script>
+
+</body>
+</html>
